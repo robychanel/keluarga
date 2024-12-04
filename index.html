@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info keluarga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td:last-of-type {
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            /* display: none; */
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 20px;
+            padding-bottom: 200px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 90%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* height: 100%; */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchTable()"
+            placeholder="Tulis nama keluarga kalian">
+    </div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>DESA</th>
+                <th>KELUARGA</th>
+                <th>TOTAL KELUARGA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>dermasuci</td>
+                <td>1) nur khoiruddin
+                    (2)siti aisahtul aminah
+                    (3)muhamad arfan aditya</td>
+                <td>total 3</td>
+            </tr>
+            <tr>
+                <td>karangjati</td>
+                <td>1) sarifudin
+                    (2)tasripah
+                    (3)riski andika putra
+                    (4)muhammad arif munandar
+                </td>
+                <td>total 4</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function searchTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('dataTable');
+            const trs = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < trs.length; i++) {
+                let row = trs[i];
+                let text = row.textContent || row.innerText;
+                row.style.display = text.toLowerCase().indexOf(filter) > -1 ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
