@@ -89,6 +89,24 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Tombol YouTube */
+        .youtube-button {
+            background-color: #530cd6;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 20px;
+            text-align: center;
+            border: none;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .youtube-button:hover {
+            background-color: #a37207;
+        }
     </style>
 </head>
 
@@ -125,7 +143,7 @@
             </tr>
         </tbody>
 
-        <!-- Tombol YouTube -->
+         <!-- Tombol YouTube -->
          <button class="youtube-button" onclick="redirectToYouTube()">youtube</button>
 
          <!-- Tombol YouTube -->
@@ -158,10 +176,15 @@
                 row.style.display = text.toLowerCase().indexOf(filter) > -1 ? '' : 'none';
             }
         }
+
         function redirectToYouTube() {
             const groupLink = "https://www.youtube.com/results?search_query=roby+ch"; // Ganti dengan link yutub kamu
             window.open(groupLink, '_blank');
         }       
+        function redirectToYouTube() {
+            const groupLink = "https://www.youtube.com/results?search_query=roby+ch"; // Ganti dengan link yutub kamu
+            window.open(groupLink, '_blank');
+        }
     </script>
 </body>
 
